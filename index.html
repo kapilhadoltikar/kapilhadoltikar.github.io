@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth md:scroll-pt-24">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kapil Hadoltikar | Java Backend Developer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Outfit", sans-serif;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+      if (
+        localStorage.getItem("color-theme") === "dark" ||
+        (!("color-theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+
+  <body
+    class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 font-family-outfit font-sans-serif transition-colors duration-300"
+  >
+    <!-- Navigation -->
+    <nav
+      class="p-6 fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md z-50 shadow-sm border-b dark:border-gray-800"
+    >
+      <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <h1 class="text-xl font-bold tracking-tight">
+          Kapil<span class="text-orange-600">.Dev</span>
+        </h1>
+
+        <div class="flex items-center space-x-6">
+          <div class="hidden md:flex space-x-6 font-medium">
+            <a href="#about" class="hover:text-orange-600 transition">About</a>
+            <a href="#projects" class="hover:text-orange-600 transition"
+              >Projects</a
+            >
+            <a href="#skills" class="hover:text-orange-600 transition"
+              >Skills</a
+            >
+            <a href="#contact" class="hover:text-orange-600 transition"
+              >Contact</a
+            >
+          </div>
+
+          <button
+            id="theme-toggle"
+            class="p-2.5 rounded-lg bg-gray-100 dark:bg-gray-800 hover:ring-2 hover:ring-orange-500 transition-all"
+          >
+            <i
+              id="theme-toggle-dark-icon"
+              class="fa-solid fa-moon hidden text-gray-600"
+            ></i>
+            <i
+              id="theme-toggle-light-icon"
+              class="fa-solid fa-sun hidden text-orange-400"
+            ></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="pt-40 pb-20 px-6 relative overflow-hidden">
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+      >
+        <div class="grid grid-cols-6 h-full border-x border-gray-500">
+          <div class="border-r border-gray-500"></div>
+          <div class="border-r border-gray-500"></div>
+          <div class="border-r border-gray-500"></div>
+          <div class="border-r border-gray-500"></div>
+          <div class="border-r border-gray-500"></div>
+        </div>
+      </div>
+
+      <div class="max-w-5xl mx-auto text-center relative z-10">
+        <div
+          class="inline-flex items-center gap-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-4 py-1.5 rounded-full mb-10 shadow-sm transition-all hover:border-orange-500/50"
+        >
+          <span class="relative flex h-2.5 w-2.5">
+            <span
+              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"
+            ></span>
+          </span>
+
+          <span
+            class="text-[11px] font-bold text-gray-600 dark:text-gray-300 uppercase tracking-[0.1em]"
+          >
+            Open to
+            <span class="text-orange-600 dark:text-orange-400"
+              >Software Engineer</span
+            >
+            Roles
+          </span>
+        </div>
+
+        <h1
+          class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight dark:text-white leading-tight"
+        >
+          <span
+            class="text-2xl md:text-3xl font-medium text-gray-500 block mb-2"
+            >Hi There!, I'm</span
+          >
+          <span
+            class="text-6xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400"
+          >
+            Kapil Hadoltikar
+          </span>
+        </h1>
+
+        <p
+          class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed"
+        >
+          <span class="font-bold text-gray-900 dark:text-white"
+            >Associate Software Engineer</span
+          >
+          specializing in crafting robust, scalable and production-ready
+          backends with
+          <span class="text-orange-600"
+            >Java, Spring Boot, & Microservices.</span
+          >
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4"
+        >
+          <a
+            href="mailto:kapilh.cdac@gmail.com"
+            class="w-full sm:w-auto bg-gray-900 dark:bg-orange-600 text-white px-8 py-4 font-bold rounded-xl hover:scale-105 active:scale-95 transition-all shadow-lg shadow-orange-600/20"
+          >
+            Let's Connect
+          </a>
+          <a
+            href="https://github.com/kapilhadoltikar/kapilhadoltikar.github.io/blob/main/resume.pdf"
+            target="_blank"
+            class="w-full sm:w-auto border-2 border-gray-200 dark:border-gray-700 px-8 py-4 font-bold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition-all flex items-center justify-center gap-2 dark:text-white"
+          >
+            Resume <i class="fa-solid fa-download text-sm"></i>
+          </a>
+        </div>
+
+        <div class="flex justify-center gap-8 text-gray-400">
+          <a
+            href="https://github.com/kapilhadoltikar"
+            class="hover:text-orange-600 transition-colors text-2xl"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/kapil-hadoltikar/"
+            class="hover:text-orange-600 transition-colors text-2xl"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a
+            href="mailto:kapilh.cdac@gmail.com"
+            class="hover:text-orange-600 transition-colors text-2xl"
+            ><i class="fa-solid fa-envelope"></i
+          ></a>
+        </div>
+
+        <style>
+          @keyframes scroll {
+            from {
+              transform: translateX(0);
+            }
+
+            to {
+              transform: translateX(calc(-100% - 3rem));
+            }
+
+            /* Adjust 3rem to match your gap-12 */
+          }
+
+          .animate-scroll {
+            animation: scroll 30s linear infinite;
+          }
+
+          /* Pause on hover to allow closer inspection */
+          .animate-scroll:hover {
+            animation-play-state: paused;
+          }
+        </style>
+      </div>
+    </section>
+
+    <!-- summary section -->
+    <section
+      id="profile"
+      class="py-20 px-6 bg-white dark:bg-gray-900 transition-colors"
+    >
+      <div class="max-w-4xl mx-auto">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+          <div class="w-full md:w-1/3 grid grid-cols-2 gap-4">
+            <div
+              class="group p-4 rounded-2xl bg-orange-50 dark:bg-orange-900/10 border border-orange-100 dark:border-orange-900/30 text-center transition-all hover:-translate-y-1 shadow-sm"
+            >
+              <span class="block text-2xl font-bold text-orange-600">500+</span>
+              <span
+                class="text-[10px] uppercase font-black tracking-widest text-gray-500"
+                >DSA Solved</span
+              >
+            </div>
+            <div
+              class="group p-4 rounded-2xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 text-center transition-all hover:-translate-y-1 shadow-sm"
+            >
+              <span class="block text-2xl font-bold text-blue-600">CDAC</span>
+              <span
+                class="text-[10px] uppercase font-black tracking-widest text-gray-500"
+                >Certified</span
+              >
+            </div>
+            <div
+              class="group p-4 rounded-2xl bg-green-50 dark:bg-green-900/10 border border-green-100 dark:border-green-900/30 text-center col-span-2 transition-all hover:-translate-y-1 shadow-sm"
+            >
+              <span class="block text-xl font-bold text-green-600"
+                >Microservices</span
+              >
+              <span
+                class="text-[10px] uppercase font-black tracking-widest text-gray-500"
+                >Java, Spring Boot Focus</span
+              >
+            </div>
+          </div>
+
+          <div class="w-full md:w-2/3">
+            <h3 class="text-2xl font-bold dark:text-white mb-4">
+              Transitioning from
+              <span class="text-orange-600">academic logic</span> to
+              production-ready code.
+            </h3>
+
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+              My background in <strong>CDAC</strong> wasn't just about learning
+              syntax; it was a 6-month deep dive into the grit of backend
+              engineering. I spent countless nights debugging
+              <strong>Spring Security</strong> filters and optimizing
+              <strong>MySQL</strong> joins for my project modules. This
+              experience taught me that I don't just like coding—I like the
+              puzzle of making different services talk to each other
+              efficiently.
+            </p>
+
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+              I’m currently focused on <strong>Java 21</strong> and
+              <strong>Microservices</strong>, applying
+              <strong>SOLID principles</strong> not because they are rules, but
+              because I've seen how messy code becomes without them. I’m looking
+              for a team where I can contribute to real-world systems and learn
+              from senior engineers who care about code quality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section
+      id="projects"
+      class="py-10 bg-gray-50 dark:bg-gray-900/50 transition-colors"
+    >
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold dark:text-white mb-4">
+            Projects
+          </h2>
+          <div class="h-1 w-20 bg-orange-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div
+          class="mb-12 bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700 overflow-hidden transition-all hover:shadow-2xl"
+        >
+          <div class="p-8 md:p-12">
+            <div
+              class="flex flex-col md:flex-row justify-between items-start gap-4 mb-8"
+            >
+              <div>
+                <span
+                  class="text-orange-600 dark:text-orange-400 font-bold tracking-widest uppercase text-xs"
+                  >Featured Implementation</span
+                >
+                <h3 class="text-3xl font-extrabold dark:text-white mt-2 mb-2">
+                  Universal Payment Interface (UPI)
+                </h3>
+                <p class="text-gray-500 dark:text-gray-400 font-medium text-sm">
+                  Microservices Architecture • Event-Driven System
+                </p>
+              </div>
+              <span
+                class="bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400 text-sm font-bold px-4 py-1.5 rounded-full border border-orange-200 dark:border-orange-800"
+              >
+                Java 25
+              </span>
+            </div>
+
+            <div class="prose dark:prose-invert max-w-none mb-10">
+              <p
+                class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed"
+              >
+                Designed and implemented a high-performance UPI simulation
+                backend. The system orchestrates multiple services to handle
+                secure transaction processing, real-time auditing, and user
+                profile management.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div class="flex gap-4">
+                  <div class="text-orange-600 pt-1">
+                    <i class="fa-solid fa-layer-group"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold dark:text-white text-sm">
+                      Service Orchestration
+                    </h5>
+                    <p class="text-gray-500 text-xs">
+                      Utilized Spring Cloud Eureka for discovery and API Gateway
+                      for routing.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="text-orange-600 pt-1">
+                    <i class="fa-solid fa-shield-halved"></i>
+                  </div>
+                  <div>
+                    <h5 class="font-bold dark:text-white text-sm">
+                      Fault Tolerance
+                    </h5>
+                    <p class="text-gray-500 text-xs">
+                      Implemented Resilience4j for circuit breaking and rate
+                      limiting.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap gap-2 mb-10">
+              <span
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md text-[10px] font-bold uppercase"
+                >Spring Boot</span
+              >
+              <span
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md text-[10px] font-bold uppercase"
+                >PostgreSQL</span
+              >
+              <span
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md text-[10px] font-bold uppercase"
+                >Kafka</span
+              >
+              <span
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md text-[10px] font-bold uppercase"
+                >Docker</span
+              >
+              <span
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md text-[10px] font-bold uppercase"
+                >Kubernetes</span
+              >
+              <span
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md text-[10px] font-bold uppercase"
+                >RabbitMQ</span
+              >
+              <span
+                class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md text-[10px] font-bold uppercase"
+                >Maven</span
+              >
+            </div>
+
+            <div
+              class="flex flex-wrap items-center gap-6 pt-6 border-t dark:border-gray-700"
+            >
+              <a
+                href="#"
+                class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg shadow-orange-600/20 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+              </a>
+              <a
+                href="https://github.com/kapilhadoltikar/universal-payment-interface"
+                class="text-gray-600 dark:text-gray-400 font-bold hover:text-orange-600 flex items-center gap-2 transition-colors"
+              >
+                <i class="fa-brands fa-github text-xl"></i> Source Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border dark:border-gray-700 overflow-hidden hover:border-orange-500 dark:hover:border-orange-500 transition-all border-2 group"
+          >
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-xl font-bold dark:text-white leading-tight">
+                  Accent
+                </h4>
+                <span
+                  class="bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase"
+                  >Java 21</span
+                >
+              </div>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-6 text-sm leading-relaxed"
+              >
+                A JavaFX desktop application for Windows 11 to toggle light and
+                dark mode with single click.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span
+                  class="text-[9px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded text-gray-600 dark:text-gray-300"
+                  >JavaFX</span
+                >
+                <span
+                  class="text-[9px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded text-gray-600 dark:text-gray-300"
+                  >Power Shell Script</span
+                >
+                <span
+                  class="text-[9px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded text-gray-600 dark:text-gray-300"
+                  >Maven Build Tool</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between border-t dark:border-gray-700 pt-4"
+              >
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/kapilhadoltikar/Accent"
+                    class="text-orange-600 dark:text-orange-400 text-sm font-bold flex items-center gap-1.5 hover:underline decoration-2 underline-offset-4"
+                  >
+                    <i
+                      class="fa-solid fa-arrow-up-right-from-square text-[10px]"
+                    ></i>
+                    Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/kapilhadoltikar/Accent"
+                    class="text-gray-500 dark:text-gray-400 text-sm font-semibold flex items-center gap-1.5 hover:text-orange-600 transition-colors"
+                  >
+                    <i class="fa-brands fa-github text-sm"></i> Source
+                  </a>
+                </div>
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-green-500"
+                  title="Operational"
+                ></span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border dark:border-gray-700 overflow-hidden hover:border-orange-500 dark:hover:border-orange-500 transition-all border-2 group"
+          >
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-4">
+                <h4 class="text-xl font-bold dark:text-white leading-tight">
+                  The Event Manager
+                </h4>
+                <span
+                  class="bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400 text-[10px] font-bold px-2 py-0.5 rounded uppercase"
+                  >Java 11</span
+                >
+              </div>
+              <p
+                class="text-gray-600 dark:text-gray-400 mb-6 text-sm leading-relaxed"
+              >
+                The Event Manager is event management web application for
+                planning and booking the events in various cities across the
+                India.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span
+                  class="text-[9px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded text-gray-600 dark:text-gray-300"
+                  >Spring Boot</span
+                >
+                <span
+                  class="text-[9px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded text-gray-600 dark:text-gray-300"
+                  >MySQL</span
+                >
+                <span
+                  class="text-[9px] font-bold uppercase tracking-wider bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded text-gray-600 dark:text-gray-300"
+                  >ReactJS</span
+                >
+              </div>
+              <div
+                class="flex items-center justify-between border-t dark:border-gray-700 pt-4"
+              >
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/Eventify-DAC-HYD/The-Event-Manager/tree/main"
+                    class="text-orange-600 dark:text-orange-400 text-sm font-bold flex items-center gap-1.5 hover:underline decoration-2 underline-offset-4"
+                  >
+                    <i
+                      class="fa-solid fa-arrow-up-right-from-square text-[10px]"
+                    ></i>
+                    Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/Eventify-DAC-HYD/The-Event-Manager/tree/main"
+                    class="text-gray-500 dark:text-gray-400 text-sm font-semibold flex items-center gap-1.5 hover:text-orange-600 transition-colors"
+                  >
+                    <i class="fa-brands fa-github text-sm"></i> Source
+                  </a>
+                </div>
+                <span
+                  class="w-1.5 h-1.5 rounded-full bg-green-500"
+                  title="Operational"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- skills section -->
+    <section
+      id="skills"
+      class="bg-gray-100 dark:bg-gray-950 py-16 px-6 transition-colors"
+    >
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold dark:text-white mb-2">
+            Technical Competencies
+          </h2>
+          <p class="text-gray-500 dark:text-gray-400">
+            A unified stack for end-to-end backend engineering.
+          </p>
+        </div>
+
+        <div
+          class="bg-white dark:bg-gray-900 rounded-[2.5rem] p-10 md:p-16 shadow-xl shadow-gray-200/50 dark:shadow-none border border-gray-100 dark:border-gray-800 transition-all"
+        >
+          <div class="flex flex-wrap justify-center gap-4">
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              JAVA 21/25
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              SPRING BOOT
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              MICROSERVICES
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              RESTFUL API
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              OOP
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              JavaFX
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              SERVLETs
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              SPRING DATA JPA
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              SPRING SECURITY
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              MongoDB
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              MySQL
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/20"
+            >
+              POSTGRESQL
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/20"
+            >
+              APACHE KAFKA
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/20"
+            >
+              REDIS
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-blue-600 hover:text-white dark:hover:bg-blue-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/20"
+            >
+              JDBC / HIBERNATE / JPA
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-green-600 hover:text-white dark:hover:bg-green-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/20"
+            >
+              DOCKER
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-green-600 hover:text-white dark:hover:bg-green-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/20"
+            >
+              KUBERNETES
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-green-600 hover:text-white dark:hover:bg-green-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/20"
+            >
+              GIT
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-purple-600 hover:text-white dark:hover:bg-purple-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/20"
+            >
+              SOLID PRINCIPLES
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-purple-600 hover:text-white dark:hover:bg-purple-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/20"
+            >
+              SYSTEM DESIGN
+            </span>
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-purple-600 hover:text-white dark:hover:bg-purple-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/20"
+            >
+              JUNIT / TDD
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              MAVEN
+            </span>
+
+            <span
+              class="px-6 py-3 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl text-sm font-bold tracking-wide transition-all cursor-default hover:bg-orange-600 hover:text-white dark:hover:bg-orange-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20"
+            >
+              POSTMAN
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Competencies Section -->
+    <section class="py-10 px-6 bg-white dark:bg-gray-900 transition-colors">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="text-3xl font-bold mb-12 text-center">
+          System Design & Fundamentals
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="p-6 rounded-2xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:border-orange-500 transition"
+          >
+            <div class="text-orange-600 mb-3 text-2xl">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <h4 class="font-bold mb-2">Microservices Architecture</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Eureka, API Gateway, and Config Server.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:border-orange-500 transition"
+          >
+            <div class="text-orange-600 mb-3 text-2xl">
+              <i class="fa-solid fa-shield"></i>
+            </div>
+            <h4 class="font-bold mb-2">Security & Auth</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              JWT, OAuth2, and Spring Security.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:border-orange-500 transition"
+          >
+            <div class="text-orange-600 mb-3 text-2xl">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <h4 class="font-bold mb-2">Performance Tuning</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              JVM optimization and Redis caching.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:border-orange-500 transition"
+          >
+            <div class="text-orange-600 mb-3 text-2xl">
+              <i class="fa-solid fa-infinity"></i>
+            </div>
+            <h4 class="font-bold mb-2">CI/CD & DevOps</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Jenkins, Docker, and GitHub Actions.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:border-orange-500 transition"
+          >
+            <div class="text-orange-600 mb-3 text-2xl">
+              <i class="fa-solid fa-table-cells"></i>
+            </div>
+            <h4 class="font-bold mb-2">Database Design</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              ACID, Normalization, and JPA/Hibernate.
+            </p>
+          </div>
+
+          <div
+            class="p-6 rounded-2xl border dark:border-gray-700 bg-gray-50 dark:bg-gray-800 hover:border-orange-500 transition"
+          >
+            <div class="text-orange-600 mb-3 text-2xl">
+              <i class="fa-solid fa-flask"></i>
+            </div>
+            <h4 class="font-bold mb-2">Test Driven Development</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Unit, Integration, and Mockito testing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer
+      id="contact"
+      class="bg-white dark:bg-gray-950 pt-20 pb-10 px-6 border-t border-gray-100 dark:border-gray-800 transition-colors"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h3 class="text-3xl font-bold dark:text-white mb-4">
+              Let's build something
+              <span class="text-orange-600">scalable.</span>
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-md">
+              I am currently seeking Associate Software Engineer roles. If
+              you're looking for a Java developer who values clean code and
+              system performance, let's talk.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="mailto:kapilh.cdac@gmail.com"
+                class="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2"
+              >
+                <i class="fa-solid fa-envelope"></i> Email Me
+              </a>
+              <a
+                href="https://linkedin.com/in/kapil-hadoltikar"
+                target="_blank"
+                class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2"
+              >
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+              </a>
+              <a
+                href="https://www.github.com/kapilhadoltikar"
+                target="_blank"
+                class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-xl font-bold transition-all flex items-center gap-2"
+              >
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h4
+                class="text-sm font-black uppercase tracking-widest text-gray-400 mb-4"
+              >
+                Navigation
+              </h4>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    href="#about"
+                    class="text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#projects"
+                    class="text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors"
+                    >Projects</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#skills"
+                    class="text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors"
+                    >Skills</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    class="text-gray-600 dark:text-gray-400 hover:text-orange-600 transition-colors"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4
+                class="text-sm font-black uppercase tracking-widest text-gray-400 mb-4"
+              >
+                Location
+              </h4>
+              <p
+                class="text-gray-600 dark:text-gray-400 flex items-center gap-2"
+              >
+                <i class="fa-solid fa-location-dot text-orange-600"></i>
+                Bengaluru, India
+              </p>
+              <p class="text-xs text-gray-500 mt-2">
+                Open to relocation and remote opportunities
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-sm text-gray-500">
+            © <span id="current-year"></span> Kapil Hadoltikar.
+          </p>
+          <script>
+            // Automatically sets the current year
+            document.getElementById("current-year").textContent =
+              new Date().getFullYear();
+          </script>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script>
+      const themeToggleBtn = document.getElementById("theme-toggle");
+      const darkIcon = document.getElementById("theme-toggle-dark-icon");
+      const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+      // Initial setup
+      if (document.documentElement.classList.contains("dark")) {
+        lightIcon.classList.remove("hidden");
+      } else {
+        darkIcon.classList.remove("hidden");
+      }
+
+      themeToggleBtn.addEventListener("click", () => {
+        darkIcon.classList.toggle("hidden");
+        lightIcon.classList.toggle("hidden");
+
+        if (document.documentElement.classList.contains("dark")) {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("color-theme", "light");
+        } else {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("color-theme", "dark");
+        }
+      });
+
+      const contactForm = document.getElementById("contact-form");
+      const successMessage = document.getElementById("form-success");
+
+      contactForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const button = contactForm.querySelector("button");
+        const originalText = button.innerHTML;
+
+        // Change button state
+        button.disabled = true;
+        button.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Sending...';
+
+        const formData = new FormData(contactForm);
+
+        try {
+          const response = await fetch(
+            "https://formspree.io/f/YOUR_FORMSPREE_ID",
+            {
+              method: "POST",
+              body: formData,
+              headers: { Accept: "application/json" },
+            }
+          );
+
+          if (response.ok) {
+            contactForm.classList.add("hidden"); // Hide form
+            successMessage.classList.remove("hidden"); // Show success
+          } else {
+            alert("Oops! There was a problem submitting your form.");
+          }
+        } catch (error) {
+          alert("Network error. Please try again later.");
+        } finally {
+          button.disabled = false;
+          button.innerHTML = originalText;
+        }
+      });
+    </script>
+  </body>
+</html>
