@@ -1,116 +1,101 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-    // --- Elements ---
+    // --- 1. UI Elements ---
     const themeToggleBtn = document.getElementById("theme-toggle");
     const darkIcon = document.getElementById("theme-toggle-dark-icon");
     const lightIcon = document.getElementById("theme-toggle-light-icon");
     const menuBtn = document.getElementById("mobile-menu-button");
-    const menuIcon = menuBtn.querySelector("i");
     const mobileMenu = document.getElementById("mobile-menu");
-    const mobileLinks = document.querySelectorAll(".mobile-link");
     const yearSpan = document.getElementById("current-year");
+    const statsSection = document.getElementById('projects');
 
-    // --- 1. Set Current Year ---
+    // Set Current Year
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // --- 2. Theme Toggle Logic ---
-    function updateIcons() {
-        if (document.documentElement.classList.contains("dark")) {
-            darkIcon.classList.add("hidden");
-            lightIcon.classList.remove("hidden");
-        } else {
-            lightIcon.classList.add("hidden");
-            darkIcon.classList.remove("hidden");
-        }
-    }
-
-    // Run once on load to sync icons with the theme set by the head script
-    updateIcons();
-
-    themeToggleBtn.addEventListener("click", () => {
-        document.documentElement.classList.toggle("dark");
+    // --- 2. Theme Management ---
+    const updateIcons = () => {
         const isDark = document.documentElement.classList.contains("dark");
+        darkIcon?.classList.toggle("hidden", isDark);
+        lightIcon?.classList.toggle("hidden", !isDark);
+    };
+
+    updateIcons(); // Initial sync
+
+    themeToggleBtn?.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
         localStorage.setItem("color-theme", isDark ? "dark" : "light");
         updateIcons();
     });
 
-    // --- 3. Mobile Menu Logic ---
-    function toggleMenu() {
-        const isOpen = mobileMenu.classList.toggle("open");
+    // --- 3. Mobile Navigation ---
+    const toggleMenu = (forceClose = null) => {
+        const menuIcon = menuBtn?.querySelector("i");
+        const isOpen = forceClose === null 
+            ? mobileMenu.classList.toggle("open") 
+            : mobileMenu.classList.remove("open") || false;
 
-        // Update Icon (Bars vs X)
-        if (isOpen) {
-            menuIcon.classList.replace("fa-bars", "fa-xmark");
-        } else {
-            menuIcon.classList.replace("fa-xmark", "fa-bars");
+        if (menuIcon) {
+            menuIcon.classList.toggle("fa-xmark", isOpen);
+            menuIcon.classList.toggle("fa-bars", !isOpen);
         }
-    }
+    };
 
-    menuBtn.addEventListener("click", (e) => {
+    menuBtn?.addEventListener("click", (e) => {
         e.stopPropagation();
         toggleMenu();
     });
 
-    // Close menu when a link is clicked
-    mobileLinks.forEach(link => {
-        link.addEventListener("click", () => {
-            mobileMenu.classList.remove("open");
-            menuIcon.classList.replace("fa-xmark", "fa-bars");
-        });
+    // Close on link click or outside click
+    document.querySelectorAll(".mobile-link").forEach(link => {
+        link.addEventListener("click", () => toggleMenu(true));
     });
 
-    // Close menu when clicking outside
     document.addEventListener("click", (e) => {
-        if (mobileMenu.classList.contains("open")) {
-            if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-                mobileMenu.classList.remove("open");
-                menuIcon.classList.replace("fa-xmark", "fa-bars");
-            }
+        if (mobileMenu?.classList.contains("open") && !mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            toggleMenu(true);
         }
     });
 
-    // Performance Metrics
-    const observerOptions = { threshold: 0.5 };
-    const observer = new IntersectionObserver((entries) => {
+    // --- 4. High-Performance Metrics Animation ---
+    /**
+     * @param {HTMLElement} obj - The element to update
+     * @param {number} end - Final value
+     * @param {string} suffix - Optional string (e.g., '%', 'ms')
+     */
+    function animateValue(obj, end, duration = 2000, suffix = "") {
+        if (!obj) return;
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            obj.innerHTML = Math.floor(progress * end) + suffix;
+            if (progress < 1) window.requestAnimationFrame(step);
+        };
+        window.requestAnimationFrame(step);
+    }
+
+    // Single Observer for Project Stats and Reveal Effects
+    const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Logic to trigger a "fade-in" or "count-up" if you add stat numbers
-                entry.target.classList.add('opacity-100');
+                if (entry.target.id === 'projects') {
+                    // Metrics from Hybrid Runtime Strategy Guide
+                    animateValue(document.getElementById("cost-reduction"), 38, 2000, "%");
+                    animateValue(document.getElementById("cold-start"), 45, 2000, "x");
+                    animateValue(document.getElementById("rps-count"), 180, 2000);
+                    animateValue(document.getElementById("p95-latency"), 46, 2000, "ms");
+                    animateValue(document.getElementById("throughput-gain"), 26, 2000, "%");
+                    revealObserver.unobserve(entry.target);
+                } else {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.25 });
 
-    document.querySelectorAll('.prose').forEach(el => observer.observe(el));
-
-
-
-    function animateValue(obj, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        obj.innerHTML = Math.floor(progress * (end - start) + start);
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    window.requestAnimationFrame(step);
-}
-
-const statsSection = document.getElementById('projects');
-const observer1 = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Values pulled directly from Project Guide
-            animateValue(document.getElementById("cost-reduction"), 0, 38, 2000);
-            animateValue(document.getElementById("cold-start"), 0, 45, 2000);
-            animateValue(document.getElementById("rps-count"), 0, 180, 2000);
-            animateValue(document.getElementById("throughput-gain"), 0, 26, 2000);
-            observer1.unobserve(statsSection); // Run once
-        }
+    // Initialize Observers
+    if (statsSection) revealObserver.observe(statsSection);
+    document.querySelectorAll('.prose, .project-card').forEach(el => {
+        el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-4');
+        revealObserver.observe(el);
     });
-}, { threshold: 0.2 });
-
-observer1.observe(statsSection);
-
 });

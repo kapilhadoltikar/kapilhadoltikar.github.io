@@ -66,3 +66,19 @@ body {
     border-color: #ea580c; /* orange-600 */
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
+
+/* Hybrid Status Badges */
+.badge-native {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.badge-jvm {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    color: white;
+}
+
+/* Operational Terminal Look */
+.font-mono {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
